@@ -17,3 +17,23 @@ def zigzagTraverse(array):
     col = 0
     goingdown = True
 
+    while not isOutOfBounds(row, col, height, width):
+        result.append(array[row][col])
+        if goingdown:
+            if col == 0 or row == height:
+                goingdown = False
+                if row == height: 
+                    col += 1
+                else:
+                    row += 1
+            else:
+                row += 1
+                col -= 1
+        else:
+            if row == 0 or col == width:
+                goingdown = True
+                if col == width:
+                    row += 1
+                else:
+                    col +=1
+
